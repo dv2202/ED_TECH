@@ -106,7 +106,6 @@ exports.signUp = async (req, res) => {
             dateOfBirth:null,
             contactNumber:null,
             about:null,
-
         })
         const hashedPassword = await bcrypt.hash(password, 10);
         const userPayload = {
