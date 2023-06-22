@@ -45,6 +45,7 @@ exports.capturePayment = async (res,req)=>{
         amount:amount*100,
         currency,
         receipt:Math.random(Date.now()).toString(),
+        //jaan much kar yha pe course id and user id pass kar rha hu taki isko mai signature verify karne ke time use kar saku
         notes:{
             courseId: courseId,
             userId,
