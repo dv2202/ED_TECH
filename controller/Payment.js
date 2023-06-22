@@ -5,7 +5,6 @@ const mailSender = require('../utils/mailSender');
 const {courseEnrollmentEmail} = require('../mail/template/courseEnrollmentEmail');
 
 exports.capturePayment = async (res,req)=>{
-
         const {courseId} = req.body;
         const userId = req.user.id;
         
@@ -48,6 +47,7 @@ exports.capturePayment = async (res,req)=>{
         receipt:Math.random(Date.now()).toString(),
         notes:{
             courseId: courseId,
+            userId,
         }
     };
     try{
@@ -70,5 +70,60 @@ exports.capturePayment = async (res,req)=>{
             message:error.message,
         });
     }
+}
 
+exports.verifySignature = async (req,res)=>{
+    const webhookSecret = "1234567890" ;
+
+    const signature = req.headers["x-razorpay-signature"];
+
+    const shasum = crypto.createHmac("sha256", webhookSecret);
+    //find checksum 
+    shasum.update (JSON.stringify(req.body));
+    const digest = shasum.digest ("hex");
+    if(shasum === digest){
+        console.log("Payment is Authorized");
+         const {courseId, userId} = req.body.payload.payment.entity.notes;
+         try{
+            //fullfill action
+            const enrolledCourse = await Course.findByIdAndUpdate({_id:courseId},{$push:{StudentsEnrolled:userId}},{new:true});
+            if(!enrolledCourse){
+                return res.status(400).json({
+                    success:false,
+                    message:"Course not found",
+                });
+            }
+
+            console.log(enrolledCourse);
+            const enrolledStudent = await User.findByIdAndUpdate({_id:userId},{$push:{courses:courseId}},{new:true});
+
+            console.log(enrolledStudent);
+
+            //mail send kardo confirmations wala
+            const emailResponse = await mailSender(
+                                                    enrolledStudent.email, 
+                                                    "Congratulations",
+                                                    "on enrolling for the course",
+                                                       
+            )
+            console.log(emailResponse);
+            return res.status(200).json({
+                success:true,
+                message:"Payment successful",
+
+            })
+         }
+         catch(error){
+            return res.status(500).json({
+                success:false,
+                message:error.message,
+            });
+         }
+    }
+    else{
+        return res.status(400).json({
+            success:false,
+            message:"Payment not authorized",
+        })
+    }
 }

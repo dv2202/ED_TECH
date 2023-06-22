@@ -115,7 +115,7 @@ exports.signUp = async (req, res) => {
             password: hashedPassword,
             accountType,
             additionalDetails : profileDetails._id,
-            image: `https://api.dicebear.com/5.x/initials/svg?seed=${firstname} ${lastname}`}
+            image: `https://api.dicebear.com/5.x/initials/svg?seed=${firstname} ${lastName}`}
         return res.status(200).json({   
             success: true,
             message: 'User created successfully'
