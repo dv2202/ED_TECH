@@ -100,3 +100,46 @@ exports.getAllCourses = async (req, res) => {
         })
     }
 }
+
+exports.getCourseDetails = async (req, res) => {
+    try{
+       //get id
+       const {courseId} = req.body;
+       const details = await Course.findById({_id:courseId}).populate(
+                                                                        {
+                                                                            path:'instructor',
+                                                                            populate:{
+                                                                                path:"additionalDetails",
+                                                                            }
+                                                                        }
+                                                            )
+                                                            .populate("category")
+                                                            .populate("ratengAndReview")
+                                                            .populate({
+                                                                path:"courseContent",
+                                                                populate:{
+                                                                    path:"subSection",
+                                                                }
+                                                            })
+                                                            .exec();
+        if(!details){
+            return res.status(400).json({
+                success: false,
+                message: `could not find course with id ${courseId}`
+
+            })
+        }
+        return res.status(200).json({
+            success:true,
+            message: 'Course details fetched successfully',
+            data:details,
+        })
+    }
+    catch(error){
+        return res.status(500).json({   
+            success: false,
+            error: error.message ,
+            message: 'failed to get course details'
+        })
+    }
+}
