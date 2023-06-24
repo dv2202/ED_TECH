@@ -70,7 +70,7 @@ exports.categoryPageDetails = async (req,res) => {
         }
         //get coursesfor different categories
         const differentCategories = await Category.find({
-                                     _id: {$ne: categoryId},
+                                     _id: {$ne: categoryId},//ne ka matlab not equal 
                                      })
                                      .populate("courses")
                                      .exec();
@@ -87,12 +87,12 @@ exports.categoryPageDetails = async (req,res) => {
             },
         });
 
-}
-catch(error ) {
-    console.log(error);
-    return res.status(500).json({
-        success:false,
-        message:error.message,
-    });
-}
+      }
+    catch(error) {
+        console.log(error);
+        return res.status(500).json({
+            success:false,
+            message:error.message,
+        });
+    }
 }
