@@ -6,7 +6,7 @@ const profileRoutes = require("./routes/Profile");
 const paymentRoutes = require("./routes/Payment");
 const courseRoutes = require("./routes/Course");
 
-const database = require("./config/databse");
+const database = require("./config/database");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");//look 
 const {cloudinaryConnect} = require("./config/cloudinary");
@@ -20,18 +20,23 @@ database.connect();
 //middleware
 app.use(express.json());
 app.use(cookieParser());
+//jo bhi request yaha se aaye usse entertain kar payenge 
 app.use(cors({
     origin:"http://localhost:3000",
     credentials:true,
-
 }));
+
 
 app.use(fileUpload({
     useTempFiles: true,
     tempFileDir: "/tmp/",
 }));
+
+
 //cloudinary connection 
 cloudinaryConnect();
+
+
 //routes
 app.use("/api/v1/auth",userRoutes);
 app.use("/api/v1/profile",profileRoutes);

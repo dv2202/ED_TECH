@@ -128,9 +128,9 @@ exports.updateDisplayPicture = async (req,res) => {
             1000,
             1000
         );
-        console.log(image);
+        console.log(image)
         const updatedProfile = await User.findByIdAndUpdate(
-            {id:userId},
+            {_id:userId},
             {image:image.secure_url},
             {new:true}
         )
@@ -143,7 +143,8 @@ exports.updateDisplayPicture = async (req,res) => {
     catch(error){
         return res.status(500).json({
             success:false,
-            message:"Unable to update Profile Please Try Agian"
+            message: error.message,
+            
         })
     }
 }
