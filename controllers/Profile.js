@@ -50,9 +50,10 @@ exports.deleteAccount = async (req,res) => {
 		// });
 		// console.log(job);
         //Get UserID 
-        const {userId} = req.user.id;
+        console.log("Printing ID: ", req.user.id);
+        const id = req.user.id;
         //validation
-        const userDetails = await User.findById(userId);
+        const userDetails = await User.findById({_id: id});
         if(!userDetails){
             return res.status(400).json({
                 success:false,
@@ -60,10 +61,9 @@ exports.deleteAccount = async (req,res) => {
             })
         }
         //DeleteProfile
-        const profileId = userDetails.additionalDetails;
-        await Profile.findByIdAndDelete(profileId);
+         await Profile.findByIdAndDelete({_id: userDetails.additionalDetails});
         //User delete 
-        await User.findByIdAndDelete(userId);
+        await User.findByIdAndDelete({_id: id});
         // TODO : HW unenroll user from enrolled courses
         //return response
         return res.status(200).json({
@@ -74,7 +74,7 @@ exports.deleteAccount = async (req,res) => {
     catch(error){
         return res.status(500).json({
             success:false,
-            message:"Unable to delete Account Please Try Agian"
+            message:error.message,
         })
     }
 }

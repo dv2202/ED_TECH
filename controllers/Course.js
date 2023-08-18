@@ -1,5 +1,5 @@
 const Course = require('../models/Course');
-const category = require('../models/Category');
+const Category = require('../models/Category');
 const User = require('../models/User');
 const {uploadImageToCloudinary} =  require('../utils/imageUploader');
 
@@ -7,19 +7,19 @@ const {uploadImageToCloudinary} =  require('../utils/imageUploader');
 exports.createCourse = async (req, res) => {
     try{
         //fetch data from body 
-        const {courseName, courseDescription, whatYouWillLearn, price, categorys,category,status,instruction} = req.body;
+        const {courseName, courseDescription, whatYouWillLearn, price, category,status,instruction} = req.body;
         //get thumbnail
         const thumbnail = req.files.thumbnailImage;
         //validation 
-        if(!courseName || !courseDescription || !whatYouWillLearn || !price || !categorys || !thumbnail || !category){
+        if(!courseName || !courseDescription || !whatYouWillLearn || !price || !category || !thumbnail ){
             return res.status(400).json({
                 success: false,
                 message: 'All fields are required'
             });
         }
-        if(!status || status === undefined){
-            status = "Draft";
-        }
+        // if(!status || status === undefined){
+        //     status = "Draft";
+        // }
         //check for instructor
         const userId = req.user.id;
         const instructorDetails = await User.findById(userId, {accountType: "Instructor"});
@@ -33,7 +33,7 @@ exports.createCourse = async (req, res) => {
         }
 
         //check given category is valid or not 
-        const categoryDetails =  await category.findById(category);
+        const categoryDetails =  await Category.findById(category);
         if(!categoryDetails){
             return res.status(400).json({
                 success: false,
@@ -54,7 +54,8 @@ exports.createCourse = async (req, res) => {
         })
         //add the new course to the user schema of Instructor 
         await User.findByIdAndUpdate(
-            {_id:instructorDetails._id},{
+            {_id:instructorDetails._id},
+            {
                 $push:{
                     courses:newCourse._id
                 }
@@ -109,22 +110,22 @@ exports.getCourseDetails = async (req, res) => {
        //get id
        const {courseId} = req.body;
        const details = await Course.findById({_id:courseId}).populate(
-                                                                        {
-                                                                            path:'instructor',
-                                                                            populate:{
-                                                                                path:"additionalDetails",
-                                                                            }
-                                                                        }
-                                                            )
-                                                            .populate("category")
-                                                            .populate("ratengAndReview")
-                                                            .populate({
-                                                                path:"courseContent",
-                                                                populate:{
-                                                                    path:"subSection",
-                                                                }
-                                                            })
-                                                            .exec();
+                                        {
+                                            path:'instructor',
+                                            populate:{
+                                            path:"additionalDetails",
+                                            }
+                                        }
+                            )
+                            .populate("category")
+                            // .("ratengAndReview")
+                            .populate({
+                                path:"courseContent",
+                                populate:{
+                                    path:"subSection",
+                                }
+                            })
+                            .exec();
         if(!details){
             return res.status(400).json({
                 success: false,

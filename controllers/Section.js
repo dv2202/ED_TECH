@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const Section = require('../models/Section');
 const Course = require('../models/Course');
+
 exports.createSection = async (req,res) =>{
     try{
         const {sectionName,courseId}= req.body ; 
@@ -64,10 +65,10 @@ exports.updateSection = async (res,req)=>{
 exports.deleteSection = async (res,req)=>{
     try{
         //get id assuming we are send ID in params 
-        const sectionId = req.params;
+        const sectionId = req.body;
 
         await Section.findByIdAndDelete(sectionId);
-        //TODO : do we need to delete the entry from coure Schema ?? 
+        //TODO : do we need to delete the entry from course Schema ?? 
         return res.status(200).json({
             success:true,
             message:"Section deleted successfully",
