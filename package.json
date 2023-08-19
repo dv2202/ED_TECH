@@ -1,31 +1,48 @@
 {
-  "name": "ed_tech",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "name": "react-tailwind-css-starter-pack",
+  "version": "0.1.0",
+  "private": true,
   "dependencies": {
-    "bcrypt": "^5.1.0",
-    "bcryptjs": "^2.4.3",
-    "cloudinary": "^1.37.1",
-    "cookie-parser": "^1.4.6",
-    "cors": "^2.8.5",
-    "crypto-random-string": "^5.0.0",
-    "dotenv": "^16.1.4",
-    "express": "^4.18.2",
-    "express-fileupload": "^1.4.0",
-    "jsonwebtoken": "^9.0.0",
-    "mime-types": "^2.1.35",
-    "mongoose": "^7.2.3",
-    "nodemailer": "^6.9.3",
-    "nodemon": "^2.0.22",
-    "otp-generator": "^4.0.1",
-    "razorpay": "^2.8.6"
+    "concurrently": "^8.2.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "5.0.1",
+    "web-vitals": "^2.1.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thepranaygupta/react-tailwind-css-starter-pack.git"
+  },
+  "author": "Pranay Gupta",
+  "bugs": {
+    "url": "https://github.com/thepranaygupta/react-tailwind-css-starter-pack/issues"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "eject": "react-scripts eject",
+    "server": "cd server && npm run dev",
+    "dev": "concurrently -n \"client,server\" -c \"bgBlue,bgYellow\" \"npm start\" \"npm run server\""
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.2.7"
   }
 }
