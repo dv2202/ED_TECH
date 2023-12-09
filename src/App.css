@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+html,body{
+    overflow-x: hidden;
+
+}
+
+.gradient-text {
+    background-image: linear-gradient(45deg, #1FA2FF, #12D8FA, #A6FFCB);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.custom-shadow1{
+    box-shadow: -2px -2px 0px 0px rgba(255, 255, 255, 0.17) inset;
+}
+.custom-shadow2{
+    box-shadow: -2px -2px 0px 0px rgba(255, 255, 255, 0.26) inset;
+}
+.bannerShadow{
+    box-shadow: 20px 20px 0px 0px rgba(245, 245, 245, 1);
+}
+
+.codeBlockElement {
+    background: linear-gradient(111.93deg, rgba(14, 26, 45, 0.24) -1.4%, rgba(17, 30, 50, 0.38) 104.96%),
+                linear-gradient(121.74deg, rgba(255, 255, 255, 0.22) -7.75%, rgba(255, 255, 255, 0) 37.38%);
+    border: 1px solid;
+    border-image-source: linear-gradient(121.74deg, rgba(255, 255, 255, 0.22) -7.75%, rgba(255, 255, 255, 0) 37.38%);
+    border-image-slice: 1;
+  }
+  
+  
+  .homepage_bg{
+    background: url("../src/assets/Images/bghome.svg");
+  }
+
+  .bor-timeline{
+    box-shadow: 20px 20px 0px 0px rgb(255, 255, 255);
+
+  }
+
+  .instructor-shadow{
+    box-shadow: -20px -20px 0px 0px rgba(255, 255, 255, 1);
+  }
