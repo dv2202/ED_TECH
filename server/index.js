@@ -22,7 +22,7 @@ app.use(express.json());
 app.use(cookieParser());
 //jo bhi request yaha se aaye usse entertain kar payenge 
 app.use(cors({
-    origin:"http://localhost:3000",
+    origin:"*",
     credentials:true,
 }));
 
