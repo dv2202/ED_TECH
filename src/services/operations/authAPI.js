@@ -5,7 +5,7 @@ import { resetCart } from "../../slices/cartSlice"
 import { setUser } from "../../slices/profileSlice"
 import { apiConnector } from "../apiconnector"
 import { endpoints } from "../apis"
-import { json } from "react-router-dom"
+
 
 const {
   SENDOTP_API,
@@ -174,13 +174,16 @@ export function resetPassword(password, confirmPassword, token, navigate) {
 
 export function logout(navigate) {
   return (dispatch) => {
-    dispatch(setToken(null))
-    dispatch(setUser(null))
-    dispatch(resetCart())
-    localStorage.removeItem("token")
-    localStorage.removeItem("user")
-    toast.success("Logged Out")
-    navigate("/")
+    try{dispatch(setToken(null))
+      dispatch(setUser(null))
+      dispatch(resetCart())
+      localStorage.removeItem("token")
+      localStorage.removeItem("userInfo")
+      toast.success("Logged Out")
+      navigate("/")}
+      catch(error){
+        console.error("Error during logout:",error)
+      }
   }
 }
 

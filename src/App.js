@@ -6,6 +6,7 @@ import OpenRoute from "./components/core/Auth/OpenRoute.jsx"
 import Login from "./pages/Login"
 import Signup from "./pages/Signup"
 import ForgotPassword from "./pages/ForgotPassword";
+import UpdatePassword from "./pages/updatePassword";
 function App() {
   return (
     <div className="w-screen min-h-full bg-richblack-900 flex flex-col font-inter">
@@ -33,6 +34,14 @@ function App() {
           element={
             <OpenRoute>
               < ForgotPassword/>
+            </OpenRoute>
+          }
+        />
+    <Route
+          path="update-password/:id"
+          element={
+            <OpenRoute>
+              < UpdatePassword/>
             </OpenRoute>
           }
         />

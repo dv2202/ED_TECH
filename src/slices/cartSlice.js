@@ -61,7 +61,7 @@ const cartSlice = createSlice({
         },
 
         //resetcart
-        resetcart: (state) => {
+        resetCart: (state) => {
             state.cart = []
             state.total = 0
             state.totalItems = 0 
