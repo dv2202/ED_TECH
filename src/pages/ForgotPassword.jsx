@@ -5,6 +5,7 @@ import { Loader } from 'rsuite';
 import { Link } from 'react-router-dom';
 import { getPasswordResetToken } from '../services/operations/authAPI';
 import { IoIosArrowRoundBack } from "react-icons/io";
+import ShapesComponent from '../components/core/homepage/common/ShapesComponent'
 const ForgotPassword = () => {
     const {loading} = useSelector((state)=> state.auth)
     const [emailSent , setEmailSent ] = useState(false);
@@ -20,7 +21,7 @@ const ForgotPassword = () => {
     <div className='text-white flex justify-center items-center h-screen'>
       {
         loading ? (
-            <div><Loader size="md" content="Loading"  className='text-white'/></div>
+            <div><ShapesComponent></ShapesComponent></div>
         ) : (
         <div className='w-[508px] h-[448px] flex flex-col gap-[36px]'>
           <div className='flex flex-col gap-[12px]'>

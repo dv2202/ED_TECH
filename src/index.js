@@ -16,7 +16,14 @@ root.render(
     <Provider store= {store}>
       <BrowserRouter>
           <App />
-          <Toaster/>
+          <Toaster
+           position="top-right"
+           toastOptions={{
+            className:'',
+            style:{
+              margin: '50px',
+            }
+           }}/>
       </BrowserRouter>
     </Provider>
   </React.StrictMode>
