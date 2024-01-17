@@ -9,6 +9,7 @@ import ProfileDropDown from '../../Auth/ProfileDropDown'
 import { FaAngleDown } from "react-icons/fa6"
 import { apiConnector } from '../../../../services/apiconnector'
 import { categories } from '../../../../services/apis'
+
 const  subLinks = [
   {
     title:"python",
@@ -85,7 +86,6 @@ const Navbar = () => {
                 ))
               }
             </ul> 
-
           </nav>
 
 
