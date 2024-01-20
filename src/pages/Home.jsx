@@ -9,7 +9,7 @@ import CodeBlocks from '../components/core/homepage/CodeBlocks'
 import TimelineSection from '../components/core/homepage/TimelineSection'
 import LearningLanguageSection from '../components/core/homepage/LearningLanguageSection'
 import InstructorSection from '../components/core/homepage/InstructorSection'
-
+import Footer from '../components/core/homepage/common/Footer'
 import ExploreMore from '../components/core/homepage/ExploreMore'
 const Home = () => {
   return (
@@ -187,7 +187,7 @@ const Home = () => {
       </div>
 
       {/* Footer  */}
-
+      <Footer/>
     </div>
   )
 }
