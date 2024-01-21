@@ -3,6 +3,8 @@ import {useForm} from "react-hook-form"
 import { apiConnector } from '../../services/apiconnector';
 import { contactusEndpoint } from '../../services/apis';
 import CountryCode from "../../data/countrycode.json"
+import { FaAngleDown } from "react-icons/fa";
+import Select from 'react-select';
 const ContactUsForm = () => {
 
     const [loading, setLoading] = useState(false);
@@ -52,12 +54,12 @@ const ContactUsForm = () => {
   return (
     <form onSubmit={handleSubmit(submitContactForm)}>
 
-    <div className='flex flex-col gap-14 w-[100%] h-[100%] p-[32px]'>
+    <div className='flex flex-col gap-14 w-[100%] h-[100%] '>
 
             <div className='flex gap-5 w-[536px] h-[76px] flex-row'>
                 {/* firstName */}
                 <div className='flex flex-col gap-[2px]'>
-                    <label htmlFor='firstname' className='text-inter text-[14px] leading-6 font-thin'>First Name</label>
+                    <label htmlFor='firstname' className='text-inter text-[14px] leading-6 font-thin text-white'>First Name</label>
                     <input  
                         type='text'
                         name='firstname'
@@ -78,7 +80,7 @@ const ContactUsForm = () => {
 
                 {/* lastName */}
                 <div className='flex flex-col'>
-                    <label htmlFor='lastname'>Last Name</label>
+                    <label htmlFor='lastname' className='text-white'>Last Name</label>
                     <input  
                         type='text'
                         name='lastname'
@@ -96,7 +98,7 @@ const ContactUsForm = () => {
 
             {/* email */}
             <div className='flex flex-col'>
-                <label htmlFor='email' className='text-inter text-[14px] leading-6 font-thin'>Email Address</label>
+                <label htmlFor='email' className='text-inter text-[14px] leading-6 font-thin text-white'>Email Address</label>
                 <input 
                     type='email'
                     name='email'
@@ -117,7 +119,7 @@ const ContactUsForm = () => {
 
             {/* phoneNo */}
             <div className='flex flex-col w-[536px]'>
-                    <label htmlFor='phonenumber' className='text-inter text-[14px] leading-6 font-thin'>Phone Number</label>
+                    <label htmlFor='phonenumber' className='text-inter text-[14px] leading-6 font-thin text-white'>Phone Number</label>
                     <div className='flex flex-row gap-2'>
                     {/* dropdown */}
                     <select name='countrycode'
@@ -157,7 +159,7 @@ const ContactUsForm = () => {
 
             {/* message */}
             <div className='flex flex-col'>
-                <label htmlFor='message' className='text-inter text-[14px] leading-6 font-thin'>Message</label>
+                <label htmlFor='message' className='text-inter text-[14px] leading-6 font-thin text-white'>Message</label>
                 <textarea 
                     name='message'
                     id='message'
