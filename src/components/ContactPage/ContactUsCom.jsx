@@ -54,7 +54,7 @@ const ContactUsForm = () => {
   return (
     <form onSubmit={handleSubmit(submitContactForm)}>
 
-    <div className='flex flex-col gap-14 w-[100%] h-[100%] '>
+    <div className='flex flex-col gap-10 w-[100%] h-[100%] '>
 
             <div className='flex gap-5 w-[536px] h-[76px] flex-row'>
                 {/* firstName */}
@@ -125,7 +125,7 @@ const ContactUsForm = () => {
                     <select name='countrycode'
                             id='countrycode'
                             defaultValue={defaultCountry ? defaultCountry.code : ''}
-                            className='w-[81px] h-[48px] p-[12px] rounded-md bg-richblack-800 appearance-none text-center contact-form-field'
+                            className='w-[81px] h-[48px] p-[12px] rounded-md bg-richblack-800 appearance-none text-center contact-form-field text-richblack-300' 
                             {...register('countrycode',{required:true})}
                     >
                             {
@@ -178,12 +178,13 @@ const ContactUsForm = () => {
                     )
                 }
             </div>
-                
-            <button type='submit'
-            className='rounded-md bg-yellow-50 text-center px-12 text-[16px] font-medium text-black h-[48px] w-[536px]'>
-                    Send Message
-            </button>
+
     </div>
+                    
+        <button type='submit'
+            className='rounded-md bg-yellow-50 text-center px-12 text-[16px] font-medium text-black h-[48px] w-[536px] mt-[20px]'>
+                    Send Message
+        </button>
 
     </form>
   )

@@ -42,7 +42,7 @@ const Home = () => {
               <CTAButton active={false} linkto={"/login"}>Book a demo</CTAButton>
             </div>
 
-            <div className=' shadow-blue-200 mb-[200px] flex items-center justify-center bannerShadow'>
+            <div className='  mb-[200px] shadow-[10px_-5px_50px_-5px] shadow-blue-200 flex items-center justify-center bannerShadow'>
               <video muted loop autoPlay className='max-w-[1038px] h-[515px] '>
                 <source src={Banner} type="video/mp4"/>
               </video>

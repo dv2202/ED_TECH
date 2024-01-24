@@ -39,7 +39,7 @@ const Contactus = () => {
             </div>
                     {/* Form  */}
 
-                <div className='w-[698px] h-[799px] rounded-xl p-[52px] gap-[32px] flex flex-col border-richblack-500  border '>
+                <div className='w-[698px]  rounded-xl p-[52px] gap-[32px] flex flex-col border-richblack-500  border '>
                     <div className='w-[594px] h-[124px] flex flex-col '>
                         <h1 className='w-[594px] h-[88px] text-inter text-[36px] leading-10 font-medium text-white'>Got a Idea? We’ve got the skills. Let’s team up</h1>
                         <p className='w-[594px] h-[24px] text-richblack-500 text-[16px] leading-6'>Tall us more about yourself and what you’re got in mind.</p>
