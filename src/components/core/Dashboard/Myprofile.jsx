@@ -7,7 +7,7 @@ const Myprofile = () => {
     const {user} = useSelector((state)=>state.profile)
     const navigate = useNavigate();
   return (
-    <div className='text-white'>
+    <div className='text-white h-[100vh]'>
         <h1>
             My Profile
         </h1>

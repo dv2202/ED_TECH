@@ -13,6 +13,7 @@ const IconBtn = ({
     <div>
         <button disabled={disabled}
         onClick={onClick}
+        className={`flex items-center py-2 px-5 bg-yellow-50 cursor-pointer gap-x-2 rounded-md font-semibold text-richblack-900 ${customClasses}`}
         type={type}>
             {
                 children ? (

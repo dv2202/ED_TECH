@@ -13,7 +13,8 @@ import Dashboard from "./pages/Dashboard";
 import MyProfile from '../src/components/core/Dashboard/Myprofile'
 import PrivateRoute from "./components/core/Auth/PrivateRoute";
 import Error from "./pages/Error";
-
+import Settings from "./components/core/Dashboard/Settings";
+import VerifyEmail from "./pages/VerifyEmail";
 function App() {
   return (
     <div className="w-screen min-h-full bg-richblack-900 flex flex-col font-inter">
@@ -36,6 +37,16 @@ function App() {
             </OpenRoute>
           }
         />
+
+    
+  <Route
+          path="verify-email"
+          element={
+            <OpenRoute>
+              <VerifyEmail />
+            </OpenRoute>
+          }
+        />  
     <Route
           path="forgot-password"
           element={
@@ -77,6 +88,10 @@ function App() {
     <Route 
            path="dashboard/my-profile" 
            element={<MyProfile />} 
+    />
+    <Route 
+           path="dashboard/settings" 
+           element={<Settings />} 
     />
 
     </Route>

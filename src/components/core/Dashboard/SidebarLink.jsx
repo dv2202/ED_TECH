@@ -8,7 +8,6 @@ const SidebarLink = ({link, iconName}) => {
     const Icon = Icons[iconName];
     const location  = useLocation();
     const dispatch = useDispatch();
-    console.log(Icon)
     const matchRoute = (route) => {
         return matchPath({path:route}, location.pathname);
     }
