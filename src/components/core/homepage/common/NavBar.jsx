@@ -10,16 +10,6 @@ import { FaAngleDown } from "react-icons/fa6"
 import { apiConnector } from '../../../../services/apiconnector'
 import { categories } from '../../../../services/apis'
 
-// const  subLinks = [
-//   {
-//     title:"python",
-//     link: "/catalog/python"
-//   },
-//   {
-//     title:"web dev",
-//     link:"/catalog/web-development"
-//   }
-// ];
 const Navbar = () => {
   const {token} = useSelector((state)=> state.auth);
   const {user} = useSelector((state)=> state.profile);

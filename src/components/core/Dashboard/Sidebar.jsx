@@ -19,7 +19,7 @@ const Sidebar = () => {
   }
 
   return (
-    <div className='text-white'>
+    <div className='text-white w-[222px]'>
       <div className=' h-full flex flex-col border-r-[1px] border-r-richblack-700 bg-richblack-800 py-10'>
         <div className='flex flex-col'>
           {sidebarLinks.map((link) => {
