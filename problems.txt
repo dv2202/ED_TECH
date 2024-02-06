@@ -3,3 +3,6 @@ Local storage ka significance sikha maine jab mai dashboard wala page bana raha 
 
 error -> /dashboard/setting -> not updating additionalDetails
       -> contact us handler 
+      -> logout confirmation modal styling 
+
+Styling -> Cart page styling 
