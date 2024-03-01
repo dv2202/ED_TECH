@@ -1,8 +1,14 @@
 Local storage ka significance sikha maine jab mai dashboard wala page bana raha tha 
 
+why we use const instead of let in states ? 
 
 error -> /dashboard/setting -> not updating additionalDetails
       -> contact us handler 
       -> logout confirmation modal styling 
 
 Styling -> Cart page styling 
+
+
+//Viewcourseslice 
+//courseDetailsapi 
+
