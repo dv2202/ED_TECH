@@ -169,7 +169,7 @@ export default function CourseInformationForm() {
           id="courseTitle"
           placeholder="Enter Course Title"
           {...register("courseTitle", { required: true })}
-          className="form-style w-full"
+          className=" h-[48px] p-[12px] rounded-md bg-richblack-700 contact-form-field appearance-none"
         />
         {errors.courseTitle && (
           <span className="ml-2 text-xs tracking-wide text-pink-200">
@@ -186,7 +186,7 @@ export default function CourseInformationForm() {
           id="courseShortDesc"
           placeholder="Enter Description"
           {...register("courseShortDesc", { required: true })}
-          className="form-style resize-x-none min-h-[130px] w-full"
+          className="p-[12px] rounded-md bg-richblack-700 contact-form-field appearance-none min-h-[130px] w-full"
         />
         {errors.courseShortDesc && (
           <span className="ml-2 text-xs tracking-wide text-pink-200">
@@ -200,6 +200,7 @@ export default function CourseInformationForm() {
           Course Price <sup className="text-pink-200">*</sup>
         </label>
         <div className="relative">
+          {/* <HiOutlineCurrencyRupee className="absolute left-3 top-1/2 inline-block -translate-y-1/2 text-2xl text-richblack-400" /> */}
           <input
             id="coursePrice"
             placeholder="Enter Course Price"
@@ -210,9 +211,8 @@ export default function CourseInformationForm() {
                 value: /^(0|[1-9]\d*)(\.\d+)?$/,
               },
             })}
-            className="form-style w-full !pl-12"
+            className="w-full p-[12px] rounded-md bg-richblack-700 contact-form-field appearance-none"
           />
-          <HiOutlineCurrencyRupee className="absolute left-3 top-1/2 inline-block -translate-y-1/2 text-2xl text-richblack-400" />
         </div>
         {errors.coursePrice && (
           <span className="ml-2 text-xs tracking-wide text-pink-200">
@@ -229,7 +229,7 @@ export default function CourseInformationForm() {
           {...register("courseCategory", { required: true })}
           defaultValue=""
           id="courseCategory"
-          className="form-style w-full"
+          className="w-full p-[12px] text-[#999DAA]rounded-md bg-richblack-700 contact-form-field appearance-none"
         >
           <option value="" disabled>
             Choose a Category
@@ -275,7 +275,7 @@ export default function CourseInformationForm() {
           id="courseBenefits"
           placeholder="Enter benefits of the course"
           {...register("courseBenefits", { required: true })}
-          className="form-style resize-x-none min-h-[130px] w-full"
+          className="w-full p-[12px] rounded-md bg-richblack-700 contact-form-field appearance-none min-h-[130px] resize-x-none"
         />
         {errors.courseBenefits && (
           <span className="ml-2 text-xs tracking-wide text-pink-200">
@@ -291,7 +291,13 @@ export default function CourseInformationForm() {
         setValue={setValue}
         errors={errors}
         getValues={getValues}
+        className="w-full p-[12px] rounded-md bg-richblack-700 contact-form-field appearance-none min-h-[130px]"
       />
+
+
+
+
+
       {/* Next Button */}
       <div className="flex justify-end gap-x-2">
         {editCourse && (

@@ -32,14 +32,17 @@ const RequirementField = ({name, label, register, errors, setValue, getValues}) 
   return (
     <div>
 
-        <label htmlFor={name}>{label}<sup>*</sup></label>
+        <label htmlFor={name} className="text-sm text-richblack-5">
+        {label}<sup>*</sup>
+        </label>
+
         <div>
             <input
                 type='text'
                 id={name}
                 value={requirement}
                 onChange={(e) => setRequirement(e.target.value)}
-                className='w-full'
+                className='w-full p-[12px] text-white rounded-md bg-richblack-700 contact-form-field appearance-none'
             />
             <button
             type='button'
@@ -54,7 +57,7 @@ const RequirementField = ({name, label, register, errors, setValue, getValues}) 
                 <ul>
                     {
                         requirementList.map((requirement, index) => (
-                            <li key={index} className='flex items-center text-richblack-5'>
+                            <li key={index} className='flex gap-1 items-center text-richblack-5'>
                                 <span>{requirement}</span>
                                 <button
                                 type='button'
@@ -69,7 +72,7 @@ const RequirementField = ({name, label, register, errors, setValue, getValues}) 
             )
         }
         {errors[name] && (
-            <span>
+            <span className='ml-2 text-xs tracking-wide text-pink-200'>
                 {label} is required
             </span>
         )}

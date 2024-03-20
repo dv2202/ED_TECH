@@ -25,11 +25,11 @@ export default function RenderSteps() {
 
   return (
     <>
-      <div className="relative mb-2 flex w-full justify-center">
+      <div className="relative mb-7 flex w-full justify-center text-center ">
         {steps.map((item) => (
           <>
             <div
-              className="flex flex-col items-center "
+              className="flex flex-col items-center w-[220.3px] gap-2"
               key={item.id}
             >
               <button
@@ -45,6 +45,13 @@ export default function RenderSteps() {
                   item.id
                 )}
               </button>
+              <p
+                className={`text-sm ${
+                  step >= item.id ? "text-richblack-5" : "text-richblack-500"
+                }`}
+              >
+                {item.title}
+              </p>
               
             </div>
             {item.id !== steps.length && (
@@ -60,26 +67,6 @@ export default function RenderSteps() {
         ))}
       </div>
 
-      <div className="relative mb-16 flex w-full select-none justify-between">
-        {steps.map((item) => (
-          <>
-            <div
-              className="flex min-w-[130px] flex-col items-center gap-y-2"
-              key={item.id}
-            >
-              
-              <p
-                className={`text-sm ${
-                  step >= item.id ? "text-richblack-5" : "text-richblack-500"
-                }`}
-              >
-                {item.title}
-              </p>
-            </div>
-            
-          </>
-        ))}
-      </div>
       {/* Render specific component based on current step */}
       {step === 1 && <CourseInformationForm />}
       {/* {step === 2 && <CourseBuilderForm />} */}
