@@ -8,7 +8,7 @@ import { GrFormNextLink } from "react-icons/gr";
 import toast from "react-hot-toast";
 import { createSection, updateSection } from "../../../../../services/operations/courseDetailsAPI";
 import { setCourse, setEditCourse, setStep } from "../../../../../slices/courseSlice";
-import NestedView from "./NestedView";
+import NestedView from "./NestedView"
 
 const CourseBuilderForm = () => {
      const {
@@ -17,7 +17,7 @@ const CourseBuilderForm = () => {
           setValue,
           formState: { errors },
      } = useForm();
-     const [editSectionName,setEditSectionName] = useState(true)
+     const [editSectionName,setEditSectionName] = useState(false)
      const {course} = useSelector(state => state.course);
      const dispatch = useDispatch();
      const {token} = useSelector(state => state.auth);
@@ -37,7 +37,6 @@ const CourseBuilderForm = () => {
      const onSubmit = async (data) => {
       setLoading(true)
       let result;
-
       if(editSectionName){
         result = await updateSection(
           {
@@ -54,8 +53,9 @@ const CourseBuilderForm = () => {
           }, token
         )
       }
+ 
       if(result){
-        dispatch(setCourse(result));  
+        dispatch(setCourse(result));
         setEditSectionName(null);
         setValue("sectionName", "");    
       }
@@ -77,30 +77,26 @@ const CourseBuilderForm = () => {
         toast.error("Please add atleast one section");
         return;
       }
-      if(course.courseContent.some((section)=> section.subSections.length === 0)){
+      debugger
+      if(course.courseContent.some((section)=> section.subSection.length === 0)){
         toast.error("Please add atleast one lecture in each section");
         return;
       }
       dispatch(setStep(3));
     }
-
-
-
-
-
      return (
           <div className="text-white  h-[100vh]">
-              <p>Course Builder</p>
+              <p className="text-[25px] font-medium">Course Builder</p>
               <form onSubmit={handleSubmit(onSubmit)}>
-                    <div>
-                         <label htmlFor="sectionName">
-                              Section Name <sup>*</sup>
+                    <div className="h-fit">
+                         <label htmlFor="sectionName" className="mb-[20px]">
+                              Section Name <sup className="text-red-500 mb-[20px]">*</sup>
                          </label>
                          <input
                               id="sectionName"
                               placeholder="Add Section name"
                               {...register("sectionName", { required: true })}
-                              className="w-full"
+                                     className="w-full p-[12px] rounded-md bg-richblack-700 contact-form-field appearance-none  resize-x-none"
                          />
                          {errors.sectionName && (
                               <span>Section Name is required</span>
@@ -136,7 +132,7 @@ const CourseBuilderForm = () => {
 
             <div className=" flex justify-end gap-x-3">
               <button onClick={goBack} className="rounded-md cursor-pointer flex items-center">
-                back
+                back 
               </button>
               <IconBtn 
               text="Next"

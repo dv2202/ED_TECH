@@ -16,7 +16,7 @@ const courseSchema = new mongoose.Schema({
         type:String,
     },
     courseContent:[
-        {
+           {
             type:mongoose.Schema.Types.ObjectId,
             ref:"Section",
         }

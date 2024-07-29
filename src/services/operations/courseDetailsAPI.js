@@ -91,7 +91,6 @@ export const addCourseDetails = async (data, token) => {
       "Content-Type": "multipart/form-data",
       Authorization: `Bearer ${token}`,
     })
-    debugger;
     console.log("CREATE COURSE API RESPONSE............", response)
     if (!response?.data?.success) {
       throw new Error("Could Not Add Course Details")
@@ -141,8 +140,9 @@ export const createSection = async (data, token) => {
     if (!response?.data?.success) {
       throw new Error("Could Not Create Section")
     }
-    toast.success("Course Section Created")
-    result = response?.data?.updatedCourse
+    toast.success("Course Section Created");
+    const temp = response?.data?.updatedCourse
+    result =  temp ;
   } catch (error) {
     console.log("CREATE SECTION API ERROR............", error)
     toast.error(error.message)
