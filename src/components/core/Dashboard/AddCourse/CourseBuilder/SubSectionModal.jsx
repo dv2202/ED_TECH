@@ -152,7 +152,7 @@ export default function SubSectionModal({
           />
           {/* Lecture Title */}
           <div className="flex flex-col space-y-2">
-            <label className="text-sm text-richblack-5" htmlFor="lectureTitle">
+            <label className="text-sm text-richblack-500" htmlFor="lectureTitle">
               Lecture Title {!view && <sup className="text-pink-200">*</sup>}
             </label>
             <input
@@ -160,7 +160,7 @@ export default function SubSectionModal({
               id="lectureTitle"
               placeholder="Enter Lecture Title"
               {...register("lectureTitle", { required: true })}
-              className="form-style w-full"
+              className="w-full p-[12px] rounded-md bg-richblack-700 contact-form-field appearance-none  resize-x-none"
             />
             {errors.lectureTitle && (
               <span className="ml-2 text-xs tracking-wide text-pink-200">
@@ -179,7 +179,7 @@ export default function SubSectionModal({
               id="lectureDesc"
               placeholder="Enter Lecture Description"
               {...register("lectureDesc", { required: true })}
-              className="form-style resize-x-none min-h-[130px] w-full"
+              className="w-full p-[12px] rounded-md bg-richblack-700 contact-form-field appearance-none  resize-x-none"
             />
             {errors.lectureDesc && (
               <span className="ml-2 text-xs tracking-wide text-pink-200">

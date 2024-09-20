@@ -77,7 +77,6 @@ const CourseBuilderForm = () => {
         toast.error("Please add atleast one section");
         return;
       }
-      debugger
       if(course.courseContent.some((section)=> section.subSection.length === 0)){
         toast.error("Please add atleast one lecture in each section");
         return;
