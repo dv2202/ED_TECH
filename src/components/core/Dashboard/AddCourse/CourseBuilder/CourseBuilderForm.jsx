@@ -115,7 +115,7 @@ const CourseBuilderForm = () => {
                           <button
                           type="button"
                           onClick={cancelEdit}
-                          className="text-sm text-richblack-300 underline ml-5"
+                          className="text-sm text-richblack-300 underline ml-5 "
                           >
                             Cancel Edit
                           </button>
@@ -129,7 +129,7 @@ const CourseBuilderForm = () => {
               )
             }
 
-            <div className=" flex justify-end gap-x-3">
+            <div className=" flex justify-end gap-x-3 mt-6">
               <button onClick={goBack} className="rounded-md cursor-pointer flex items-center">
                 back 
               </button>

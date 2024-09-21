@@ -18,7 +18,7 @@ export default function NestedView({ handleChangeEditSectionName }) {
   const { course } = useSelector((state) => state.course)
   const { token } = useSelector((state) => state.auth)
   const dispatch = useDispatch()
-  debugger;
+  ;
   // States to keep track of mode of modal [add, view, edit]
   const [addSubSection, setAddSubsection] = useState(null)
   const [viewSubSection, setViewSubSection] = useState(null)
@@ -54,7 +54,7 @@ export default function NestedView({ handleChangeEditSectionName }) {
   return (
     <>
       <div
-        className="rounded-lg bg-richblack-700 p-6 px-8"
+        className="rounded-lg bg-richblack-700 p-6 px-8 mt-10 no-scrollbar"
         id="nestedViewContainer"
       >
         {course?.courseContent?.length > 0 && course.courseContent.map((section,index) => (

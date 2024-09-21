@@ -148,7 +148,7 @@ export default function CourseInformationForm() {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="space-y-8 rounded-md border-[1px] border-richblack-700 bg-richblack-800 p-6"
+      className="space-y-8 rounded-md border-[1px] border-richblack-700 bg-richblack-800 p-6 h-full mb-5"
     >
       {/* Course Title */}
       <div className="flex flex-col space-y-2">
@@ -302,6 +302,7 @@ export default function CourseInformationForm() {
         <IconBtn
           disabled={loading}
           text={!editCourse ? "Next" : "Save Changes"}
+          onClick={() => dispatch(setStep(2))}
         >
           <MdNavigateNext />
         </IconBtn>
