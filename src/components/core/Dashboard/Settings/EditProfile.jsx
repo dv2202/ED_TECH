@@ -21,12 +21,8 @@ const EditProfile = () => {
 
   const submitProfileForm = async(data)=>{
 
-        try{
-            console.log("Saving....")
-            console.log("token",token)
-            
+        try{            
             dispatch(updateProfile(token,data,navigate));
-            console.log("details",user?.additionalDetails?.contactNumber)
         }
         catch(error){
             console.log("error in profile update - ", error.message)
